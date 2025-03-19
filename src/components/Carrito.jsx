@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import styles from './Carrito.module.css'; // Import the CSS for animations and positioning
 
 const Carrito = () => {
     const [carrritoItems, setCarritoItems] = useState([
         {
           "id": 1,
-          "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+          "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 LaptopsFjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
           "price": 109.95,
           "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
           "category": "men's clothing",
@@ -26,7 +27,7 @@ const Carrito = () => {
             "rate": 4.1,
             "count": 259
           },
-          "quantity": 2
+          "quantity": 5
         },
         {
           "id": 3,
@@ -39,7 +40,7 @@ const Carrito = () => {
             "rate": 4.7,
             "count": 500
           },
-          "quantity": 2
+          "quantity": 3
 
         },
         {
@@ -53,14 +54,36 @@ const Carrito = () => {
             "rate": 2.1,
             "count": 430
           },
-          "quantity": 2
+          "quantity": 12
         }
     ]
     )
     
     return (    
-        <>
-            <h1></h1>
-        </>
+        <div className={styles.pageContainer}>
+          <h1>Carrito de compra</h1>
+          <div className={styles.columnLeft}>
+            <div className={styles.carrito}>
+              {carrritoItems.map((item,index) => (
+                <div key={index} className={styles.carritoItems}>
+                    <img src={item.image} tile={item.title}width="50px" alt={item.image}></img>
+                    <div className={styles.titleCash}>
+                      <p>{item.title}</p>
+                      <div className={styles.cash}>
+                        <p>Qty.: {item.quantity}</p>
+                        <p>Price: {item.price} €</p>
+                      </div>
+                    </div>
+                </div>
+                )
+              )}
+            </div>
+          </div>
+          <div className={styles.columnRight}>
+
+          </div>
+        </div>
     )
 }
+
+export default Carrito;
