@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.pageContainer {
+    background-color: lightblue;
+    margin: 0 auto 0 auto;
+    width: 90vw;
+
+    .h1 {
+        /* margin: auto;
+        text-align: center; */
+    }
+    .columnLeft {
+        .carrito {
+            display: flex;
+            flex-direction: column  ;
+            padding: 20px;
+            gap: 20px;
+            width: 50%;
+            
+            .carritoItems {
+                border: 1px solid;
+                border-radius: 10px;
+                padding: 20px;
+                display: flex;
+                gap: 10px;
+                /* gap: 20px; */
+                /* justify-content: space-between; */
+
+                .titleCash {
+                    display: flex;
+                    gap: 10px;
+                    margin-right: auto;
+                    width: 150%;
+                    
+                    .cash{
+                        width: 200px;
+                        margin-left: auto;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+    .columnRight{
+        background-color: aqua;
+        width: 100%;
+    }
+}
