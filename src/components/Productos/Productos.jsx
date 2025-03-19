@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import styles from './Productos.module.css';
 
 const Productos = () => {
@@ -127,12 +127,71 @@ const Productos = () => {
             },
     ]);
 
-    return {
+
+    // const agregarProductos = () => {
+    //   fetch()
+    // }
+
+
+
+
+
+
+    const [contar, setContar] = useState(0);
+    
+    const handleIn = () => {
+      setContar(prevContar => prevContar + 1 );
+
         
-
-     
-
-
+   
     }
+    const handleDe = () => {
+      setContar(prevContar => prevContar - 1 );
+      
+ 
+    }
+    const handleRe = () => {
+      setContar(0)
+    }
+
+
+    return (
+      <>
+        <h1 className={styles.titulo} >Tienda de ropa</h1>
+
+
+        <div className={styles.productosContenedor}>
+        <h2>Productos</h2>
+        <select name="articulos" id="articulos">
+          {productos.map((producto, index) => (
+
+              <option key={index} value={producto.id} title={producto.title}>{producto.title}</option>
+
+            )
+          )}
+         
+
+        </select>
+
+        {/* <img src="" alt="Imagen del producto" />
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum commodi, sapiente voluptate doloribus harum voluptates quod a in autem delectus esse veniam culpa laborum nisi voluptatem. Harum nulla nobis deserunt!</p> */}
+
+        <div>
+          <button onClick={handleDe} className={styles.botones} >-</button>
+          <input value={contar} type="number" min={1} max={99} className={styles.input}/>
+          <button onClick={handleIn} className={styles.botones}>+</button>
+        </div>
+
+        <div>
+          <button className={styles.botones}>Agregar</button>
+          <button onClick={handleRe} className={styles.botones}>Eliminar todo</button>
+        </div>
+        </div>
+
+
+
+
+      </>
+    )
 }
 export default Productos;
