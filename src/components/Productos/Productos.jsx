@@ -149,7 +149,7 @@ const handleAgregar = () => {
   // art.options[art.selectedIndex].title
 }
 
-
+console.log("test");
 
 
 
