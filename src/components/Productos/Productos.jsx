@@ -132,11 +132,21 @@ const Productos = () => {
     //   fetch()
     // }
   
+////funcion agregar
+
+
+const handleAgregar = () => {
+
+  const art = document.querySelector("#articulos");
+  console.log(art);
+
+}
 
 
 
 
 
+///funcion contar
     const [contar, setContar] = useState(0);
     
     const handleIn = () => {
@@ -178,7 +188,8 @@ const Productos = () => {
           </div>
 
           <div>
-            <button className={styles.botones}>Agregar</button>
+            <button className={styles.botones} onClick={handleAgregar}>Agregar</button>
+
             <button onClick={handleRe} className={styles.botones}>Eliminar todo</button>
           </div>
         </div>
