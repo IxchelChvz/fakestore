@@ -3,6 +3,8 @@ import styles from './Productos.module.css';
 
 const Productos = () => {
 
+
+/// funcion para mostrar los productos
     const [productos, setProductos] = useState(
         [
             {
@@ -127,10 +129,13 @@ const Productos = () => {
             },
     ]);
 
-
-    // const agregarProductos = () => {
-    //   fetch()
-    // }
+    
+    fetch('https://fakestoreapi.com/products')
+    .then(response => response.json())
+    .then(data => console.log(data));
+  
+    
+  
   
 ////funcion agregar
 
@@ -147,7 +152,11 @@ const handleAgregar = () => {
 
 
 
+
 ///funcion contar
+
+//funcion de contar de los botones
+
     const [contar, setContar] = useState(0);
     
     const handleIn = () => {
