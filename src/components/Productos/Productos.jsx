@@ -126,13 +126,45 @@ const Productos = () => {
               }
             },
     ]);
-
+    const [productoElegido, setProductoElegido] = useState({})
 
     // const agregarProductos = () => {
     //   fetch()
     // }
   
+////funcion agregar
 
+
+const handleAgregar = () => {
+
+  const art = document.querySelector("#articulos");
+  console.log("art", art);
+  
+  console.log("valor", art.value)
+
+  const productoTem = {
+    "id": art.options[art.selectedIndex].id,
+    "title": art.options[art.selectedIndex].title,
+    "price": art.options[art.selectedIndex].getAttribute("price"),
+    "description": art.options[art.selectedIndex].getAttribute("description"),
+    "category": art.options[art.selectedIndex].getAttribute("category"),
+    "image": art.options[art.selectedIndex].getAttribute("image"),
+    "rating": art.options[art.selectedIndex].getAttribute("rating"),
+    "quantity": contar,
+
+  }
+console.log(productoTem)
+  // art.options[art.selectedIndex].title
+}
+
+
+
+
+
+
+///funcion contar
+
+//funcion de contar de los botones
 
 
 
@@ -149,10 +181,8 @@ const Productos = () => {
       }     
  
     }
-    const handleRe = () => {
-      setContar(0)
-    }
-console.log("TEST");
+    
+
 
     return (
       <div className={styles.body}>
@@ -162,7 +192,18 @@ console.log("TEST");
           <h2>Productos</h2>
           <select name="articulos" id="articulos">
             {productos.map((producto, index) => (
-                <option key={index} value={producto.id} title={producto.title}>{producto.title}</option>
+                <option key={index} value={producto.id} 
+
+                id={producto.id}
+                title={producto.title}
+                price={producto.price}
+                description={producto.description}
+                category={producto.category}
+                image={producto.image}
+                rating={producto.rating}
+
+
+                >{producto.title}</option>
               )
             )}
           </select>
@@ -173,13 +214,13 @@ console.log("TEST");
           <div>
             <button onClick={handleDe} className={styles.botones} >-</button>
             {/* <input value={contar} type="number" min={1} max={99} className={styles.input}/> */}
-            <input id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
+            <input onChange={handleAgregar} id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
             <button onClick={handleIn} className={styles.botones}>+</button>
           </div>
 
           <div>
-            <button className={styles.botones}>Agregar</button>
-            <button onClick={handleRe} className={styles.botones}>Eliminar todo</button>
+            <button className={styles.botones} onClick={handleAgregar}>Agregar</button>
+
           </div>
         </div>
 
