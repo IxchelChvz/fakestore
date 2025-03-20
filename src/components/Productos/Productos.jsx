@@ -131,7 +131,7 @@ const Productos = () => {
     // const agregarProductos = () => {
     //   fetch()
     // }
-
+  
 
 
 
@@ -147,6 +147,9 @@ const Productos = () => {
     }
     const handleDe = () => {
       setContar(prevContar => prevContar - 1 );
+      if (contar <= 0) {
+          setContar(0);
+      }
       
  
     }
@@ -166,6 +169,7 @@ const Productos = () => {
           {productos.map((producto, index) => (
 
               <option key={index} value={producto.id} title={producto.title}>{producto.title}</option>
+              
 
             )
           )}
