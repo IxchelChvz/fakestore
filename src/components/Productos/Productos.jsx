@@ -139,6 +139,7 @@ const handleAgregar = () => {
 
   const art = document.querySelector("#articulos");
   console.log(art);
+  console.log(art.value)
 
 }
 
@@ -159,9 +160,7 @@ const handleAgregar = () => {
       }     
  
     }
-    const handleRe = () => {
-      setContar(0)
-    }
+  
 
 
     return (
@@ -190,7 +189,7 @@ const handleAgregar = () => {
           <div>
             <button className={styles.botones} onClick={handleAgregar}>Agregar</button>
 
-            <button onClick={handleRe} className={styles.botones}>Eliminar todo</button>
+          
           </div>
         </div>
 
