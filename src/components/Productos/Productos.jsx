@@ -152,7 +152,7 @@ const Productos = () => {
     const handleRe = () => {
       setContar(0)
     }
-
+console.log("TEST");
 
     return (
       <div className={styles.body}>
