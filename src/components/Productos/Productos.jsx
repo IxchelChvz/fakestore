@@ -143,9 +143,10 @@ const Productos = () => {
 const handleAgregar = () => {
 
   const art = document.querySelector("#articulos");
-  console.log(art);
-  console.log(art.value)
-
+  console.log("art", art);
+  
+  console.log("valor", art.value)
+  // art.options[art.selectedIndex].title
 }
 
 
@@ -169,7 +170,9 @@ const handleAgregar = () => {
       }     
  
     }
-  
+  const handleCantidad = () => {
+    
+  }
 
 
     return (
@@ -191,7 +194,7 @@ const handleAgregar = () => {
           <div>
             <button onClick={handleDe} className={styles.botones} >-</button>
             {/* <input value={contar} type="number" min={1} max={99} className={styles.input}/> */}
-            <input id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
+            <input onChange={handleCantidad}id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
             <button onClick={handleIn} className={styles.botones}>+</button>
           </div>
 
