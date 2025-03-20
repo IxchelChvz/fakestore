@@ -5,7 +5,8 @@
 .pageContainer {
     background-color: lightblue;
     margin: 0 auto 0 auto;
-    width: 90vw;
+    /* width: 90vw; */
+    display: flex;
 
     .h1 {
         /* margin: auto;
@@ -17,7 +18,7 @@
             flex-direction: column  ;
             padding: 20px;
             gap: 20px;
-            width: 50%;
+            /* width: 50%; */
             
             .carritoItems {
                 border: 1px solid;
@@ -45,6 +46,6 @@
     }
     .columnRight{
         background-color: aqua;
-        width: 100%;
+        /* width: 100%; */
     }
 }

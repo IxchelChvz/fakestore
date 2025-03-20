@@ -4,7 +4,7 @@ import './App.css';
 import Productos from './components/Productos/Productos';
 import Navbar from './components/Navbar/Navbar';
 // import {Route, Routes } from "react-router-dom";
-import Carrito from './components/Carrito';
+import Carrito from './components/Carrito/Carrito';
 
 
 
@@ -17,7 +17,7 @@ function App() {
     <Route path="/" element={<Home />}></Route>
 
     </Routes> */}
-    <Productos/>
+    {/* <Productos/> */}
       {/* <Navbar /> */}
 
       {/* <Routes>

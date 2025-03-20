@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Carrito.module.css'; // Import the CSS for animations and positioning
+import Productos from '../Productos/Productos';
 
 const Carrito = () => {
     const [carrritoItems, setCarritoItems] = useState([
@@ -60,8 +61,9 @@ const Carrito = () => {
     )
     
     return (    
+      <>
+        <h1>Carrito de compra</h1>
         <div className={styles.pageContainer}>
-          <h1>Carrito de compra</h1>
           <div className={styles.columnLeft}>
             <div className={styles.carrito}>
               {carrritoItems.map((item,index) => (
@@ -80,9 +82,10 @@ const Carrito = () => {
             </div>
           </div>
           <div className={styles.columnRight}>
-
+              <Productos />
           </div>
         </div>
+      </>
     )
 }
 
