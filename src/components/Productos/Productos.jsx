@@ -127,6 +127,26 @@ const Productos = () => {
             },
     ]);
 
+    
+//     fetch('https://fakestoreapi.com/products')
+//     .then(response => response.json())
+//     .then(data => console.log(data));
+  
+    
+  
+  
+////funcion agregar
+
+
+const handleAgregar = () => {
+
+  const art = document.querySelector("#articulos");
+  console.log("art", art);
+  
+  console.log("valor", art.value)
+  // art.options[art.selectedIndex].title
+}
+
 
     // const agregarProductos = () => {
     //   fetch()
@@ -149,10 +169,10 @@ const Productos = () => {
       }     
  
     }
-    const handleRe = () => {
-      setContar(0)
-    }
-console.log("TEST");
+  const handleCantidad = () => {
+    
+  }
+
 
     return (
       <div className={styles.body}>
@@ -173,13 +193,14 @@ console.log("TEST");
           <div>
             <button onClick={handleDe} className={styles.botones} >-</button>
             {/* <input value={contar} type="number" min={1} max={99} className={styles.input}/> */}
-            <input id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
+            <input onChange={handleCantidad}id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
             <button onClick={handleIn} className={styles.botones}>+</button>
           </div>
 
           <div>
-            <button className={styles.botones}>Agregar</button>
-            <button onClick={handleRe} className={styles.botones}>Eliminar todo</button>
+            <button className={styles.botones} onClick={handleAgregar}>Agregar</button>
+
+          
           </div>
         </div>
 
