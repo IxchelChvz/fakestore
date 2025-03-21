@@ -127,6 +127,8 @@ const Productos = () => {
             },
     ]);
 
+  const [productoElegido, setProductoElegido] = useState({})
+
     
 //     fetch('https://fakestoreapi.com/products')
 //     .then(response => response.json())
@@ -152,7 +154,39 @@ const handleAgregar = () => {
     //   fetch()
     // }
   
+////funcion agregar
 
+
+const handleAgregar = () => {
+
+  const art = document.querySelector("#articulos");
+  console.log("art", art);
+  
+  console.log("valor", art.value)
+
+  const productoTem = {
+    "id": art.options[art.selectedIndex].id,
+    "title": art.options[art.selectedIndex].title,
+    "price": art.options[art.selectedIndex].getAttribute("price"),
+    "description": art.options[art.selectedIndex].getAttribute("description"),
+    "category": art.options[art.selectedIndex].getAttribute("category"),
+    "image": art.options[art.selectedIndex].getAttribute("image"),
+    "rating": art.options[art.selectedIndex].getAttribute("rating"),
+    "quantity": contar,
+
+  }
+console.log(productoTem)
+  // art.options[art.selectedIndex].title
+}
+
+
+
+
+
+
+///funcion contar
+
+//funcion de contar de los botones
 
 
 
@@ -169,6 +203,7 @@ const handleAgregar = () => {
       }     
  
     }
+
   const handleCantidad = () => {
     
   }
@@ -182,7 +217,18 @@ const handleAgregar = () => {
           <h2>Productos</h2>
           <select name="articulos" id="articulos">
             {productos.map((producto, index) => (
-                <option key={index} value={producto.id} title={producto.title}>{producto.title}</option>
+                <option key={index} value={producto.id} 
+
+                id={producto.id}
+                title={producto.title}
+                price={producto.price}
+                description={producto.description}
+                category={producto.category}
+                image={producto.image}
+                rating={producto.rating}
+
+
+                >{producto.title}</option>
               )
             )}
           </select>
@@ -193,6 +239,7 @@ const handleAgregar = () => {
           <div>
             <button onClick={handleDe} className={styles.botones} >-</button>
             {/* <input value={contar} type="number" min={1} max={99} className={styles.input}/> */}
+
             <input onChange={handleCantidad}id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
             <button onClick={handleIn} className={styles.botones}>+</button>
           </div>
@@ -200,7 +247,7 @@ const handleAgregar = () => {
           <div>
             <button className={styles.botones} onClick={handleAgregar}>Agregar</button>
 
-          
+
           </div>
         </div>
 
