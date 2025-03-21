@@ -1,7 +1,7 @@
 import React, { use, useState } from 'react';
 import styles from './Productos.module.css';
 
-const Productos = ({ productoDeProductos, handleProductoDeProductos}) => {
+const Productos = ({ handleProductoDeProductos}) => {
 
     const [productos, setProductos] = useState(
         [
