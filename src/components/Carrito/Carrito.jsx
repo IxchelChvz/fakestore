@@ -3,7 +3,8 @@ import styles from './Carrito.module.css'; // Import the CSS for animations and 
 import Productos from '../Productos/Productos';
 
 const Carrito = () => {
-    const [carrritoItems, setCarritoItems] = useState([
+    const [productoDeProductos, setProductoDeProductos] = useState({})
+    const [carritoItems, setCarritoItems] = useState([
         {
           "id": 1,
           "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 LaptopsFjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -114,13 +115,26 @@ const Carrito = () => {
     ]
     )
     
+    const handleProductoDeProductos = (producto) => {
+        debugger
+        producto.rating = JSON.parse(producto.rating)
+        console.log("Recibido en Carrito: ", producto)
+        setCarritoItems(prevCarritoItems => {
+            let carritoTMP = [...prevCarritoItems]
+            carritoTMP.push(producto)
+            return carritoTMP
+        })
+        console.log("Carrito: ", carritoItems)
+    }
+
+
     return (    
       <>
         <h1>Carrito de compra</h1>
         <div className={styles.pageContainer}>
           <div className={styles.columnLeft}>
             <div className={styles.carrito}>
-              {carrritoItems.map((item,index) => (
+              {carritoItems.map((item,index) => (
                 <div key={index} className={styles.carritoItems}>
                     <img src={item.image} tile={item.title}width="50px" alt={item.image}></img>
                     <div className={styles.titleCash}>
@@ -136,7 +150,7 @@ const Carrito = () => {
             </div>
           </div>
           <div className={styles.columnRight}>
-              <Productos />
+              <Productos productoDeProductos={productoDeProductos} handleProductoDeProductos={handleProductoDeProductos}/>
           </div>
         </div>
       </>

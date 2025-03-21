@@ -1,7 +1,7 @@
 import React, { use, useState } from 'react';
 import styles from './Productos.module.css';
 
-const Productos = () => {
+const Productos = ({ productoDeProductos, handleProductoDeProductos}) => {
 
     const [productos, setProductos] = useState(
         [
@@ -134,22 +134,6 @@ const Productos = () => {
 //     .then(response => response.json())
 //     .then(data => console.log(data));
   
-    
-  
-  
-////funcion agregar
-
-
-const handleAgregar = () => {
-
-  const art = document.querySelector("#articulos");
-  console.log("art", art);
-  
-  console.log("valor", art.value)
-  // art.options[art.selectedIndex].title
-}
-
-
     // const agregarProductos = () => {
     //   fetch()
     // }
@@ -161,7 +145,6 @@ const handleAgregar = () => {
 
   const art = document.querySelector("#articulos");
   console.log("art", art);
-  
   console.log("valor", art.value)
 
   const productoTem = {
@@ -173,8 +156,9 @@ const handleAgregar = () => {
     "image": art.options[art.selectedIndex].getAttribute("image"),
     "rating": art.options[art.selectedIndex].getAttribute("rating"),
     "quantity": contar,
-
   }
+handleProductoDeProductos(productoTem)
+//   debugger
 console.log(productoTem)
   // art.options[art.selectedIndex].title
 }
@@ -204,9 +188,9 @@ console.log(productoTem)
  
     }
 
-  const handleCantidad = () => {
+//   const handleCantidad = () => {
     
-  }
+//   }
 
 
     return (
@@ -218,16 +202,13 @@ console.log(productoTem)
           <select name="articulos" id="articulos">
             {productos.map((producto, index) => (
                 <option key={index} value={producto.id} 
-
-                id={producto.id}
-                title={producto.title}
-                price={producto.price}
-                description={producto.description}
-                category={producto.category}
-                image={producto.image}
-                rating={producto.rating}
-
-
+                    id={producto.id}
+                    title={producto.title}
+                    price={producto.price}
+                    description={producto.description}
+                    category={producto.category}
+                    image={producto.image}
+                    rating={JSON.stringify(producto.rating)}
                 >{producto.title}</option>
               )
             )}
@@ -239,8 +220,9 @@ console.log(productoTem)
           <div>
             <button onClick={handleDe} className={styles.botones} >-</button>
             {/* <input value={contar} type="number" min={1} max={99} className={styles.input}/> */}
+            {/* <input onChange={handleCantidad}id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/> */}
 
-            <input onChange={handleCantidad}id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input}/>
+            <input id="contar" name="contar" value={contar} type="number" min={1} max={99} className={styles.input} disabled/>
             <button onClick={handleIn} className={styles.botones}>+</button>
           </div>
 
